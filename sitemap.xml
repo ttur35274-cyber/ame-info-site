@@ -1,12 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://xn----7sbqthvidaco0k.xn--p1ai/blochnoeoborudovanie/</loc>
     <lastmod>2026-07-31</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/</loc>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/blok-filtrov/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/blok-izmerenij-pokazatelej-kachestva-nefti-2/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/blok-izmerenij-pokazatelej-kachestva-nefti/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/blok-podgotovki-gaza-bpg4/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/blok-podgotovki-gaza/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/blok-podgotovki-toplivnogo-gaza/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/blok-uchyota-gaza/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/novosty/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/ao-almazy-anabara/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/ao-gapromneft-noyabrskneftegaz/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/ao-messoyahaneftegaz/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/ao-nizhnevartovskoe-neftegazodobyvayushhee-predpriyatie/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/ao-verhnechonskneftegaz/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/ao-vsnk/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/oao-gazpromneft-noyabrskneftegaz/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/ooo-gazpromneft-razvitie/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/ooo-gazpromneft-yamal/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/ooo-lukojl-komi/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/ooo-lukojl-pnos/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/ooo-ng-energo-nznp-trejd/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/ooo-ngk-razvitie-regionov-prinimayushhaya-storona-oao-nk-rosneft/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/ooo-ojltim-inzhiniring/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/ooo-ozmk/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/ooo-rn-buzulukskoe-gpp/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/ooo-rn-yuganskneftegaz/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/ooo-sibur-tobolsk/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/ooo-taas-yuryah-neftegazodobycha/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/pao-orenburgneft/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/category/proekty/zao-neftemontazhdiagnostika/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/dlya-vosstanovleniya-rynochnyh-otnoshenij-rossiya-v-marte-2023-g-sokratit-dobychu-na-500-tys-barr-sutki/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/elementor-5167/</loc>
     <lastmod>2026-07-31</lastmod>
     <priority>0.8</priority>
   </url>
@@ -17,6 +177,11 @@
   </url>
   <url>
     <loc>https://xn----7sbqthvidaco0k.xn--p1ai/isistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/izgotovlenie-komplektuyushhih-dlya-urovnemerov-i-vlagomerov/</loc>
     <lastmod>2026-07-31</lastmod>
     <priority>0.8</priority>
   </url>
@@ -41,12 +206,52 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/mobilnaya-izmeritelnaya-ustanovka-na-priczep-shassi-im2-63-1-1500-mf-22l1-a1-h0-uhls/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://xn----7sbqthvidaco0k.xn--p1ai/montazh-i-puskonaladka/</loc>
     <lastmod>2026-07-31</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/multifaznaya-ustanovka/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://xn----7sbqthvidaco0k.xn--p1ai/nasosnye-stanczii/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/neft-rezko-podorozhala-posle-slov-novaka-o-sokrashhenii-dobychi-v-rossii/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/new-test-page/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/novost-2/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/novost-3/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/novost-4/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/novost-5/</loc>
     <lastmod>2026-07-31</lastmod>
     <priority>0.8</priority>
   </url>
@@ -76,7 +281,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/realizovannye-proekty/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/rep-holding-i-gpb-inzhiniring-zaklyuchili-soglashenie-o-sotrudnichestve/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sertifikaty/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/shkafnoe-proizvodstvo/</loc>
     <lastmod>2026-07-31</lastmod>
     <priority>0.8</priority>
   </url>
@@ -101,7 +321,197 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-gaza/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza-10/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza-11/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza-12/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza-13/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza-14/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza-15/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza-16/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza-17/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza-18/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza-2/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza-3/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza-4/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza-5/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza-6/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza-7/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza-8/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza-9/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza-ot-upn-sikg-6/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-gaza/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-kachestva-na-bajpasnoj-linii-bprtg-sikg-8/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-svobodnogo-neftyanogo-gaza-2/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-svobodnogo-neftyanogo-gaza-3/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-svobodnogo-neftyanogo-gaza-4/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-svobodnogo-neftyanogo-gaza-5/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-svobodnogo-neftyanogo-gaza-6/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-svobodnogo-neftyanogo-gaza-na-linii-zapalnogo-gaza-fvd/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-svobodnogo-neftyanogo-gaza-vysokogo-davleniya/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-parametrov-svobodnogo-neftyanogo-gaza/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-neftegazovodyanoj-smesi/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj-10/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj-11/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj-12/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj-13/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj-14/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj-15/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj-16/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj-17/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj-18/</loc>
     <lastmod>2026-07-31</lastmod>
     <priority>0.8</priority>
   </url>
@@ -111,7 +521,57 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj-2/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj-20/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj-3/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj-4/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj-5/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj-6/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj-7/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj-8/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj-9/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-syroj/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistema-izmerenij-kolichestva-kondensata-otkachivaemogo-v-sushhestvuyushhij-truboprovod-otkachki-kondensata-v-rvs-12/</loc>
     <lastmod>2026-07-31</lastmod>
     <priority>0.8</priority>
   </url>
@@ -121,7 +581,32 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistemy-izmerenij-kolichestva-i-parametrov-gaza/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistemy-izmerenij-kolichestva-i-pokazatelej-kachestva-nefteprodukta/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistemy-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti-%E2%84%96391/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/sistemy-izmerenij-kolichestva-i-pokazatelej-kachestva-nefti/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://xn----7sbqthvidaco0k.xn--p1ai/truboporshnevaya-poverochnaya-ustanovka/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xn----7sbqthvidaco0k.xn--p1ai/uzel-uchyota-prirodnogo-gaza-modernizacziya/</loc>
     <lastmod>2026-07-31</lastmod>
     <priority>0.8</priority>
   </url>
