@@ -1,15 +1,4 @@
-# START YOAST BLOCK
-# ---------------------------
 User-agent: *
-Disallow: /wp-admin/
-Disallow: /umf700/
-Disallow: /mpv700/
-Disallow: /rashodomery/
+Allow: /
 
-Allow: /wp-admin/admin-ajax.php
-
-Sitemap: https://www.ame-info.ru/wp-sitemap.xml
-
-Sitemap: https://www.ame-info.ru/sitemap_index.xml
-# ---------------------------
-# END YOAST BLOCK
+Sitemap: https://xn----7sbqthvidaco0k.xn--p1ai/sitemap.xml
