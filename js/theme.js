@@ -15,10 +15,10 @@
     if (theme === 'dark') {
       root.classList.add('theme-dark');
     }
-    updateButtonIcon(theme === 'dark');
+    updateButtonIcons(theme === 'dark');
   }
 
-  function updateButtonIcon(isDark) {
+  function updateButtonIcons(isDark) {
     var btns = document.querySelectorAll('.ame-theme-toggle i');
     btns.forEach(function (icon) {
       icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
@@ -59,8 +59,8 @@
 
   // Кнопка-переключатель ВНУТРИ гамбургер-меню (Elementor popup 867) —
   // добавляется как последний пункт меню, в стиле ms-expert.ru
-  function createToggleButton() {
-    if (document.querySelector('.ame-theme-toggle')) return;
+  function createToggleButton(container) {
+    if (!container || container.querySelector('.ame-theme-toggle')) return;
 
     var btn = document.createElement('button');
     btn.type = 'button';
@@ -75,26 +75,73 @@
       applyTheme(next);
     });
 
-    // Ищем контейнер меню попапа 867 (бургер-меню)
-    var menuWrap = document.querySelector('.elementor-867 .elementor-widget-wrap') ||
-                   document.querySelector('.elementor-location-popup .elementor-widget-wrap') ||
-                   document.querySelector('.elementor-popup-modal .elementor-widget-wrap');
-    if (menuWrap) {
-      menuWrap.appendChild(btn);
-    } else {
-      // Fallback: fixed-кнопка в правом нижнем углу
-      btn.classList.add('ame-theme-toggle-fixed');
-      document.body.appendChild(btn);
+    container.appendChild(btn);
+    updateButtonIcons(document.documentElement.classList.contains('theme-dark'));
+  }
+
+  // Ищем контейнер меню попапа 867 (бургер-меню) в текущем DOM
+  function findPopupMenu() {
+    return document.querySelector('.elementor-867 .elementor-widget-wrap') ||
+           document.querySelector('#elementor-popup-modal-867 .elementor-widget-wrap') ||
+           document.querySelector('.elementor-popup-modal .elementor-widget-wrap') ||
+           document.querySelector('.elementor-location-popup .elementor-widget-wrap');
+  }
+
+  function ensureToggleInPopup() {
+    var wrap = findPopupMenu();
+    if (wrap) {
+      createToggleButton(wrap);
     }
+  }
+
+  // Элементор монтирует попап 867 в DOM только при открытии (клик по бургеру).
+  // Слушаем событие elementor/popup/show + MutationObserver, чтобы добавить
+  // кнопку в меню именно в момент открытия попапа.
+  function watchPopup() {
+    // Событие Elementor Pro: jQuery(document).trigger('elementor/popup/show', [id, element])
+    if (window.jQuery) {
+      try {
+        window.jQuery(document).on('elementor/popup/show', function (e, id) {
+          if (String(id) === '867' || String(id) === '') {
+            setTimeout(ensureToggleInPopup, 50);
+          } else {
+            setTimeout(ensureToggleInPopup, 50);
+          }
+        });
+        window.jQuery(document).on('elementor/popup/hide', function () {});
+      } catch (e) {}
+    }
+
+    // MutationObserver — надёжный запасной вариант: ловим появление попапа в DOM
+    try {
+      var observer = new MutationObserver(function (mutations) {
+        for (var i = 0; i < mutations.length; i++) {
+          var added = mutations[i].addedNodes;
+          for (var j = 0; j < added.length; j++) {
+            var node = added[j];
+            if (node && node.nodeType === 1) {
+              var html = node.outerHTML || '';
+              if (html.indexOf('elementor-867') >= 0 || html.indexOf('popup-modal') >= 0 || html.indexOf('elementor-location-popup') >= 0) {
+                ensureToggleInPopup();
+                return;
+              }
+            }
+          }
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    } catch (e) {}
   }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
       init();
-      createToggleButton();
+      ensureToggleInPopup();
+      watchPopup();
     });
   } else {
     init();
-    createToggleButton();
+    ensureToggleInPopup();
+    watchPopup();
   }
 })();
