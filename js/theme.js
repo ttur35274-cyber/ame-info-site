@@ -1,6 +1,8 @@
 /* ============================================================
    масс-эксперт.рф — Тёмная тема (как на ms-expert.ru)
    Класс: html.theme-dark  |  localStorage: mass-expert-theme
+   Кнопка переключения — ВНУТРИ гамбургер-меню (popup 867),
+   как пункт меню, по стилю ms-expert.ru.
    ============================================================ */
 (function () {
   'use strict';
@@ -55,7 +57,8 @@
     }
   }
 
-  // Кнопка-переключатель в шапке сайта (перед кнопкой "Связаться с нами")
+  // Кнопка-переключатель ВНУТРИ гамбургер-меню (Elementor popup 867) —
+  // добавляется как последний пункт меню, в стиле ms-expert.ru
   function createToggleButton() {
     if (document.querySelector('.ame-theme-toggle')) return;
 
@@ -64,7 +67,7 @@
     btn.className = 'ame-theme-toggle';
     btn.setAttribute('aria-label', 'Переключить тему');
     btn.title = 'Переключить тему';
-    btn.innerHTML = '<i class="fas fa-moon"></i>';
+    btn.innerHTML = '<i class="fas fa-moon"></i><span class="ame-theme-toggle-label">Тёмная тема</span>';
     btn.addEventListener('click', function () {
       var isDark = document.documentElement.classList.contains('theme-dark');
       var next = isDark ? 'light' : 'dark';
@@ -72,13 +75,12 @@
       applyTheme(next);
     });
 
-    // Вставляем в колонку с бургером (logo-menu) — видна на всех разрешениях,
-    // в отличие от nav-menu-header (скрыта на мобильных)
-    var anchor = document.querySelector('.logo-menu .elementor-widget-wrap') ||
-                 document.querySelector('.elementor-location-header .nav-menu-header .elementor-widget-wrap') ||
-                 document.querySelector('header');
-    if (anchor) {
-      anchor.appendChild(btn);
+    // Ищем контейнер меню попапа 867 (бургер-меню)
+    var menuWrap = document.querySelector('.elementor-867 .elementor-widget-wrap') ||
+                   document.querySelector('.elementor-location-popup .elementor-widget-wrap') ||
+                   document.querySelector('.elementor-popup-modal .elementor-widget-wrap');
+    if (menuWrap) {
+      menuWrap.appendChild(btn);
     } else {
       // Fallback: fixed-кнопка в правом нижнем углу
       btn.classList.add('ame-theme-toggle-fixed');

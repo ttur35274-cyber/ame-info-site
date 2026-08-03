@@ -263,42 +263,57 @@ html.theme-dark body::-webkit-scrollbar-thumb {
   background: #334155 !important;
 }
 
-/* Кнопка переключения темы */
+/* Кнопка переключения темы — пункт меню внутри гамбургер-меню (popup 867), стиль ms-expert.ru */
 .ame-theme-toggle {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  margin-left: 10px;
-  border: 1px solid rgba(57, 49, 133, 0.2);
-  border-radius: 50%;
-  background: #FFFFFF;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 16px;
+  margin-top: 4px;
+  border: none;
+  border-top: 1px solid #EDEDED;
+  border-radius: 0;
+  background: transparent;
   color: #393185;
-  font-size: 16px;
+  font-family: "Inter", Sans-serif;
+  font-size: 15px;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.25s ease;
-  vertical-align: middle;
+  text-align: left;
+}
+.ame-theme-toggle i {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
 }
 .ame-theme-toggle:hover {
-  background: #F59E0B;
-  color: #0F172A;
-  border-color: #F59E0B;
+  background: rgba(57, 49, 133, 0.08);
+  color: #393185;
 }
 html.theme-dark .ame-theme-toggle {
-  background: #1A2236;
   color: #E2E8F0;
-  border-color: #2A2F3E;
+  border-top-color: #2A2F3E;
 }
 html.theme-dark .ame-theme-toggle:hover {
-  background: #F59E0B;
-  color: #0F172A;
-  border-color: #F59E0B;
+  background: rgba(255, 255, 255, 0.08);
+  color: #F59E0B;
 }
 .ame-theme-toggle-fixed {
   position: fixed;
   right: 20px;
   bottom: 20px;
   z-index: 9999;
+  width: auto;
+  padding: 10px 16px;
+  border: 1px solid rgba(57, 49, 133, 0.2);
+  border-radius: 8px;
+  background: #FFFFFF;
   box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+html.theme-dark .ame-theme-toggle-fixed {
+  background: #1A2236;
+  border-color: #2A2F3E;
+  color: #E2E8F0;
 }
