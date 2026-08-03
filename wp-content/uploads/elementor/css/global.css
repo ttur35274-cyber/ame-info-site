@@ -35,3 +35,270 @@ img[class*="wp-image-"]:not([src$=".svg"]) {
   border-radius: 12px !important;
   box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
 }
+
+
+/* ============================================================
+   AME custom: ТЁМНАЯ ТЕМА (html.theme-dark) — как на ms-expert.ru
+   ============================================================ */
+html.theme-dark body,
+html.theme-dark .elementor-page,
+html.theme-dark .elementor-kit-5 {
+  background-color: #0F172A !important;
+  color: #CBD5E1 !important;
+}
+html.theme-dark {
+  --e-global-color-text: #CBD5E1;
+  --e-global-color-secondary: #94A3B8;
+  --e-global-color-17d4954: #2A2F3E;
+}
+/* Секции и колонки: белые/светлые фоны -> тёмные */
+html.theme-dark .elementor-section,
+html.theme-dark .elementor-column,
+html.theme-dark .elementor-widget-wrap,
+html.theme-dark .e-con,
+html.theme-dark .e-con-inner {
+  transition: background-color 0.3s ease;
+}
+html.theme-dark section.elementor-section[style*="background-color:#ffffff"],
+html.theme-dark section.elementor-section[style*="background-color: #ffffff"],
+html.theme-dark section.elementor-section[style*="background-color:#F4F4F4"],
+html.theme-dark section.elementor-section[style*="background-color:#FFFFFF"],
+html.theme-dark div[data-element_type="section"][style*="background-color:#ffffff"],
+html.theme-dark .elementor-widget-container {
+  background-color: transparent !important;
+}
+/* Заголовки */
+html.theme-dark h1,
+html.theme-dark h2,
+html.theme-dark h3,
+html.theme-dark h4,
+html.theme-dark h5,
+html.theme-dark h6,
+html.theme-dark .elementor-heading-title,
+html.theme-dark .elementor-widget-heading .elementor-heading-title {
+  color: #E2E8F0 !important;
+}
+/* Текстовые блоки */
+html.theme-dark .elementor-widget-text-editor,
+html.theme-dark .elementor-text-editor,
+html.theme-dark .elementor-widget-text-editor p,
+html.theme-dark .elementor-widget-theme-post-content,
+html.theme-dark .elementor-widget-theme-post-content p,
+html.theme-dark .page-content,
+html.theme-dark .page-content p,
+html.theme-dark li,
+html.theme-dark .elementor-icon-list-text {
+  color: #CBD5E1 !important;
+}
+/* Основной контент */
+html.theme-dark #content,
+html.theme-dark .site-main,
+html.theme-dark .elementor-widget-text-editor .elementor-widget-container {
+  color: #CBD5E1;
+}
+/* Ссылки */
+html.theme-dark a:not(.elementor-button):not(.elementor-item):not(.elementor-sub-item) {
+  color: #93C5FD !important;
+}
+html.theme-dark a:not(.elementor-button):not(.elementor-item):not(.elementor-sub-item):hover {
+  color: #F59E0B !important;
+}
+/* Меню (Elementor nav menu) */
+html.theme-dark .elementor-nav-menu--main .elementor-item,
+html.theme-dark .elementor-nav-menu--dropdown .elementor-item,
+html.theme-dark .elementor-nav-menu--dropdown .elementor-sub-item {
+  color: #E2E8F0 !important;
+}
+html.theme-dark .elementor-nav-menu--main .elementor-item:hover,
+html.theme-dark .elementor-nav-menu--main .elementor-item.elementor-item-active {
+  color: #F59E0B !important;
+}
+html.theme-dark .elementor-nav-menu--dropdown {
+  background-color: #1A2236 !important;
+  border-color: #2A2F3E !important;
+}
+html.theme-dark .elementor-nav-menu--dropdown .elementor-item,
+html.theme-dark .elementor-nav-menu--dropdown .elementor-sub-item {
+  background-color: #1A2236 !important;
+}
+html.theme-dark .elementor-nav-menu--dropdown .elementor-item:hover,
+html.theme-dark .elementor-nav-menu--dropdown .elementor-sub-item:hover {
+  background-color: #2A2F3E !important;
+  color: #F59E0B !important;
+}
+/* Кнопки Elementor */
+html.theme-dark .elementor-button {
+  color: #0F172A !important;
+  background-color: #F59E0B !important;
+}
+html.theme-dark .elementor-button:hover {
+  background-color: #D97706 !important;
+  color: #FFFFFF !important;
+}
+/* Карточки/виджеты с фоном */
+html.theme-dark .elementor-widget-image-box,
+html.theme-dark .elementor-widget-icon-box,
+html.theme-dark .elementor-widget-call-to-action,
+html.theme-dark .elementor-widget-posts .elementor-post,
+html.theme-dark .elementor-widget-posts .elementor-post__card,
+html.theme-dark .elementor-posts .elementor-post,
+html.theme-dark .elementor-posts-container .elementor-post,
+html.theme-dark .elementor-post__card {
+  background-color: #1A2236 !important;
+  border-color: #2A2F3E !important;
+  color: #CBD5E1 !important;
+}
+html.theme-dark .elementor-post__title a,
+html.theme-dark .elementor-post__title {
+  color: #E2E8F0 !important;
+}
+html.theme-dark .elementor-post__excerpt,
+html.theme-dark .elementor-post__excerpt p {
+  color: #94A3B8 !important;
+}
+/* Таблицы */
+html.theme-dark table,
+html.theme-dark .elementor-widget-table-of-contents,
+html.theme-dark .elementor-toc__body {
+  color: #CBD5E1 !important;
+}
+html.theme-dark th,
+html.theme-dark thead {
+  color: #E2E8F0 !important;
+  background-color: #1A2236 !important;
+}
+/* Аккордеон/табы */
+html.theme-dark .elementor-accordion .elementor-tab-title,
+html.theme-dark .elementor-toggle .elementor-tab-title,
+html.theme-dark .elementor-tabs .elementor-tab-title {
+  color: #E2E8F0 !important;
+  background-color: #1A2236 !important;
+  border-color: #2A2F3E !important;
+}
+html.theme-dark .elementor-accordion .elementor-tab-content,
+html.theme-dark .elementor-toggle .elementor-tab-content {
+  color: #CBD5E1 !important;
+  border-color: #2A2F3E !important;
+}
+/* Формы */
+html.theme-dark .elementor-field,
+html.theme-dark .elementor-field-textual,
+html.theme-dark input[type="text"],
+html.theme-dark input[type="email"],
+html.theme-dark input[type="tel"],
+html.theme-dark input[type="number"],
+html.theme-dark input[type="url"],
+html.theme-dark input[type="search"],
+html.theme-dark input[type="date"],
+html.theme-dark select,
+html.theme-dark textarea {
+  background-color: #151B2B !important;
+  color: #E2E8F0 !important;
+  border-color: #2A2F3E !important;
+}
+html.theme-dark .elementor-field::placeholder,
+html.theme-dark input::placeholder,
+html.theme-dark textarea::placeholder {
+  color: #6B7280 !important;
+}
+/* Футер (Elementor location-footer) */
+html.theme-dark .elementor-location-footer,
+html.theme-dark .elementor-location-footer .elementor-section,
+html.theme-dark .elementor-location-footer .elementor-column,
+html.theme-dark .elementor-location-footer .elementor-widget-wrap {
+  background-color: #0F172A !important;
+}
+html.theme-dark .elementor-location-footer .elementor-heading-title,
+html.theme-dark .elementor-location-footer .elementor-widget-text-editor,
+html.theme-dark .elementor-location-footer p {
+  color: #E2E8F0 !important;
+}
+html.theme-dark .elementor-location-footer a {
+  color: #94A3B8 !important;
+}
+/* Шапка (Elementor location-header) */
+html.theme-dark .elementor-location-header,
+html.theme-dark .elementor-location-header .elementor-section,
+html.theme-dark .elementor-location-header .elementor-column,
+html.theme-dark .elementor-location-header .elementor-widget-wrap {
+  background-color: #0F172A !important;
+}
+html.theme-dark .elementor-location-header .elementor-button {
+  background-color: #F59E0B !important;
+  color: #0F172A !important;
+}
+html.theme-dark .elementor-location-header .elementor-button:hover {
+  background-color: #D97706 !important;
+  color: #FFFFFF !important;
+}
+/* Попапы (Elementor popup) */
+html.theme-dark .elementor-popup-modal .dialog-widget-content,
+html.theme-dark .elementor-popup-modal .dialog-message,
+html.theme-dark .elementor-popup-modal .elementor-section,
+html.theme-dark .elementor-popup-modal .elementor-widget-wrap,
+html.theme-dark #elementor-popup-modal-867,
+html.theme-dark #elementor-popup-modal-2534 {
+  background-color: #0F172A !important;
+  color: #CBD5E1 !important;
+}
+html.theme-dark .dialog-lightbox-widget .dialog-widget-content {
+  background-color: #0F172A !important;
+}
+/* Слайдеры/карусели (owl) */
+html.theme-dark .owl-carousel .owl-stage-outer,
+html.theme-dark .owl-carousel .owl-item {
+  background-color: #0F172A !important;
+}
+/* Контентные изображения: тень темнее */
+html.theme-dark .elementor-widget-image img:not([src$=".svg"]),
+html.theme-dark img[class*="wp-image-"]:not([src$=".svg"]) {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+}
+/* Скроллбар */
+html.theme-dark body {
+  scrollbar-color: #334155 transparent !important;
+}
+html.theme-dark body::-webkit-scrollbar-thumb {
+  background: #334155 !important;
+}
+
+/* Кнопка переключения темы */
+.ame-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  margin-left: 10px;
+  border: 1px solid rgba(57, 49, 133, 0.2);
+  border-radius: 50%;
+  background: #FFFFFF;
+  color: #393185;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  vertical-align: middle;
+}
+.ame-theme-toggle:hover {
+  background: #F59E0B;
+  color: #0F172A;
+  border-color: #F59E0B;
+}
+html.theme-dark .ame-theme-toggle {
+  background: #1A2236;
+  color: #E2E8F0;
+  border-color: #2A2F3E;
+}
+html.theme-dark .ame-theme-toggle:hover {
+  background: #F59E0B;
+  color: #0F172A;
+  border-color: #F59E0B;
+}
+.ame-theme-toggle-fixed {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
