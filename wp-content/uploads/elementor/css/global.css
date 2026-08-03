@@ -17,3 +17,21 @@ img[class*="wp-image-"]:not([src$=".svg"]) {
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
+
+/* AME custom: слайдеры Elementor Slides — рамка со скруглёнными углами */
+.elementor-widget-slides .swiper-slide {
+  overflow: hidden;
+  border: 1px solid rgba(13,60,110,0.15);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* AME custom: карусель продукции на главной — рамки для фото
+   (!important т.к. post-9.css задаёт .uc_classic_carousel_placeholder img{border-radius:0} специфичнее) */
+.elementor-element-5e10bff .uc_classic_carousel img,
+.elementor-element-a0dd72d .uc_classic_carousel img,
+.elementor-element-fb1a821 .uc_classic_carousel img {
+  border: 1px solid rgba(13,60,110,0.15) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
+}
