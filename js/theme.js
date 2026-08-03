@@ -19,9 +19,18 @@
   }
 
   function updateButtonIcons(isDark) {
-    var btns = document.querySelectorAll('.ame-theme-toggle i');
-    btns.forEach(function (icon) {
-      icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    var btns = document.querySelectorAll('.ame-theme-toggle');
+    btns.forEach(function (btn) {
+      var icon = btn.querySelector('i');
+      var label = btn.querySelector('.ame-theme-toggle-label');
+      if (icon) {
+        icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+      }
+      if (label) {
+        label.textContent = isDark ? 'Светлая тема' : 'Тёмная тема';
+      }
+      btn.setAttribute('aria-label', isDark ? 'Переключить на светлую тему' : 'Переключить на тёмную тему');
+      btn.title = isDark ? 'Переключить на светлую тему' : 'Переключить на тёмную тему';
     });
   }
 
