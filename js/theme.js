@@ -3,6 +3,11 @@
    Класс: html.theme-dark  |  localStorage: mass-expert-theme
    Кнопки «Тёмная тема» / «Светлая тема» — ВНУТРИ гамбургер-меню
    (popup 867), как пункты меню, по стилю ms-expert.ru.
+
+   ВАЖНО: клики обрабатываются ЧЕРЕЗ ДЕЛЕГИРОВАНИЕ на document.
+   Elementor при открытии попапа пересоздаёт DOM-кнопки из своего
+   шаблона (клон без обработчиков), поэтому слушатели вешаются
+   на document один раз — и работают даже после пересоздания.
    ============================================================ */
 (function () {
   'use strict';
@@ -61,22 +66,41 @@
     }
   }
 
+  // ДЕЛЕГИРОВАНИЕ: один слушатель на document ловит клики по кнопкам темы.
+  // Работает даже если Elementor пересоздал кнопки (клон без обработчиков).
+  function setupDelegatedClicks() {
+    document.addEventListener('click', function (e) {
+      var target = e.target;
+      while (target && target !== document) {
+        if (target.classList && target.classList.contains('ame-theme-toggle-dark')) {
+          setSavedTheme('dark');
+          applyTheme('dark');
+          return;
+        }
+        if (target.classList && target.classList.contains('ame-theme-toggle-light')) {
+          setSavedTheme('light');
+          applyTheme('light');
+          return;
+        }
+        target = target.parentElement;
+      }
+    });
+  }
+
   function makeButton(cls, icon, label, theme) {
     var btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'ame-theme-toggle ' + cls;
     btn.setAttribute('aria-label', label);
     btn.title = label;
+    btn.setAttribute('data-theme', theme);
     btn.innerHTML = '<i class="' + icon + '"></i><span class="ame-theme-toggle-label">' + label + '</span>';
-    btn.addEventListener('click', function () {
-      setSavedTheme(theme);
-      applyTheme(theme);
-    });
     return btn;
   }
 
   // Две кнопки-переключателя ВНУТРИ гамбургер-меню (Elementor popup 867) —
-  // как пункты меню, в стиле ms-expert.ru
+  // как пункты меню, в стиле ms-expert.ru. Обработчики НЕ вешаем на кнопки
+  // (их пересоздаёт Elementor) — работает делегирование на document.
   function createToggleButtons(container) {
     if (!container || container.querySelector('.ame-theme-toggle-dark')) return;
 
@@ -108,13 +132,8 @@
     if (window.jQuery) {
       try {
         window.jQuery(document).on('elementor/popup/show', function (e, id) {
-          if (String(id) === '867' || String(id) === '') {
-            setTimeout(ensureToggleInPopup, 50);
-          } else {
-            setTimeout(ensureToggleInPopup, 50);
-          }
+          setTimeout(ensureToggleInPopup, 100);
         });
-        window.jQuery(document).on('elementor/popup/hide', function () {});
       } catch (e) {}
     }
 
@@ -142,11 +161,13 @@
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
       init();
+      setupDelegatedClicks();
       ensureToggleInPopup();
       watchPopup();
     });
   } else {
     init();
+    setupDelegatedClicks();
     ensureToggleInPopup();
     watchPopup();
   }
