@@ -263,14 +263,14 @@ html.theme-dark body::-webkit-scrollbar-thumb {
   background: #334155 !important;
 }
 
-/* Кнопка переключения темы — пункт меню внутри гамбургер-меню (popup 867), стиль ms-expert.ru */
+/* Кнопки переключения темы — пункты меню внутри гамбургер-меню (popup 867), стиль ms-expert.ru */
 .ame-theme-toggle {
   display: flex;
   align-items: center;
   gap: 10px;
   width: 100%;
   padding: 14px 16px;
-  margin-top: 4px;
+  margin-top: 2px;
   border: none;
   border-top: 1px solid #EDEDED;
   border-radius: 0;
@@ -292,12 +292,27 @@ html.theme-dark body::-webkit-scrollbar-thumb {
   background: rgba(57, 49, 133, 0.08);
   color: #393185;
 }
+.ame-theme-toggle.active {
+  background: rgba(57, 49, 133, 0.12);
+  color: #393185;
+  font-weight: 600;
+}
+.ame-theme-toggle.active i {
+  color: #393185;
+}
 html.theme-dark .ame-theme-toggle {
   color: #E2E8F0;
   border-top-color: #2A2F3E;
 }
 html.theme-dark .ame-theme-toggle:hover {
   background: rgba(255, 255, 255, 0.08);
+  color: #F59E0B;
+}
+html.theme-dark .ame-theme-toggle.active {
+  background: rgba(245, 158, 11, 0.15);
+  color: #F59E0B;
+}
+html.theme-dark .ame-theme-toggle.active i {
   color: #F59E0B;
 }
 .ame-theme-toggle-fixed {

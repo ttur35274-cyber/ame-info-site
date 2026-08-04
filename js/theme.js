@@ -1,8 +1,8 @@
 /* ============================================================
    масс-эксперт.рф — Тёмная тема (как на ms-expert.ru)
    Класс: html.theme-dark  |  localStorage: mass-expert-theme
-   Кнопка переключения — ВНУТРИ гамбургер-меню (popup 867),
-   как пункт меню, по стилю ms-expert.ru.
+   Кнопки «Тёмная тема» / «Светлая тема» — ВНУТРИ гамбургер-меню
+   (popup 867), как пункты меню, по стилю ms-expert.ru.
    ============================================================ */
 (function () {
   'use strict';
@@ -15,23 +15,18 @@
     if (theme === 'dark') {
       root.classList.add('theme-dark');
     }
-    updateButtonIcons(theme === 'dark');
+    updateButtonsState(theme === 'dark');
   }
 
-  function updateButtonIcons(isDark) {
-    var btns = document.querySelectorAll('.ame-theme-toggle');
-    btns.forEach(function (btn) {
-      var icon = btn.querySelector('i');
-      var label = btn.querySelector('.ame-theme-toggle-label');
-      if (icon) {
-        icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-      }
-      if (label) {
-        label.textContent = isDark ? 'Светлая тема' : 'Тёмная тема';
-      }
-      btn.setAttribute('aria-label', isDark ? 'Переключить на светлую тему' : 'Переключить на тёмную тему');
-      btn.title = isDark ? 'Переключить на светлую тему' : 'Переключить на тёмную тему';
-    });
+  function updateButtonsState(isDark) {
+    var darkBtn = document.querySelector('.ame-theme-toggle-dark');
+    var lightBtn = document.querySelector('.ame-theme-toggle-light');
+    if (darkBtn) {
+      darkBtn.classList.toggle('active', !!isDark);
+    }
+    if (lightBtn) {
+      lightBtn.classList.toggle('active', !isDark);
+    }
   }
 
   function getSavedTheme() {
@@ -66,26 +61,28 @@
     }
   }
 
-  // Кнопка-переключатель ВНУТРИ гамбургер-меню (Elementor popup 867) —
-  // добавляется как последний пункт меню, в стиле ms-expert.ru
-  function createToggleButton(container) {
-    if (!container || container.querySelector('.ame-theme-toggle')) return;
-
+  function makeButton(cls, icon, label, theme) {
     var btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = 'ame-theme-toggle';
-    btn.setAttribute('aria-label', 'Переключить тему');
-    btn.title = 'Переключить тему';
-    btn.innerHTML = '<i class="fas fa-moon"></i><span class="ame-theme-toggle-label">Тёмная тема</span>';
+    btn.className = 'ame-theme-toggle ' + cls;
+    btn.setAttribute('aria-label', label);
+    btn.title = label;
+    btn.innerHTML = '<i class="' + icon + '"></i><span class="ame-theme-toggle-label">' + label + '</span>';
     btn.addEventListener('click', function () {
-      var isDark = document.documentElement.classList.contains('theme-dark');
-      var next = isDark ? 'light' : 'dark';
-      setSavedTheme(next);
-      applyTheme(next);
+      setSavedTheme(theme);
+      applyTheme(theme);
     });
+    return btn;
+  }
 
-    container.appendChild(btn);
-    updateButtonIcons(document.documentElement.classList.contains('theme-dark'));
+  // Две кнопки-переключателя ВНУТРИ гамбургер-меню (Elementor popup 867) —
+  // как пункты меню, в стиле ms-expert.ru
+  function createToggleButtons(container) {
+    if (!container || container.querySelector('.ame-theme-toggle-dark')) return;
+
+    container.appendChild(makeButton('ame-theme-toggle-dark', 'fas fa-moon', 'Тёмная тема', 'dark'));
+    container.appendChild(makeButton('ame-theme-toggle-light', 'fas fa-sun', 'Светлая тема', 'light'));
+    updateButtonsState(document.documentElement.classList.contains('theme-dark'));
   }
 
   // Ищем контейнер меню попапа 867 (бургер-меню) в текущем DOM
@@ -99,13 +96,13 @@
   function ensureToggleInPopup() {
     var wrap = findPopupMenu();
     if (wrap) {
-      createToggleButton(wrap);
+      createToggleButtons(wrap);
     }
   }
 
   // Элементор монтирует попап 867 в DOM только при открытии (клик по бургеру).
   // Слушаем событие elementor/popup/show + MutationObserver, чтобы добавить
-  // кнопку в меню именно в момент открытия попапа.
+  // кнопки в меню именно в момент открытия попапа.
   function watchPopup() {
     // Событие Elementor Pro: jQuery(document).trigger('elementor/popup/show', [id, element])
     if (window.jQuery) {
