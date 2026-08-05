@@ -95,6 +95,13 @@
   .step p{font-size:19px;color:var(--t);line-height:1.45}
 
   /* ===== навигация по слайдам ===== */
+  .nav-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:60;width:92px;height:92px;border-radius:50%;border:2px solid var(--border);background:rgba(26,34,54,.85);color:var(--h);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s ease;backdrop-filter:blur(4px)}
+  .nav-arrow:hover{background:rgba(245,158,11,.18);border-color:var(--accent);color:var(--accent);transform:translateY(-50%) scale(1.08)}
+  .nav-arrow:active{transform:translateY(-50%) scale(.96)}
+  .nav-arrow svg{width:44px;height:44px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+  .nav-arrow.prev{left:34px}
+  .nav-arrow.next{right:34px}
+  .nav-arrow[disabled]{opacity:.25;pointer-events:none;cursor:default}
   .dots{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:50}
   .dots button{width:12px;height:12px;border-radius:50%;border:none;background:#334155;cursor:pointer;transition:all .25s;padding:0}
   .dots button.on{background:var(--accent);transform:scale(1.25)}
@@ -319,12 +326,16 @@
 <div class="dots" id="dots"></div>
 <div class="counter" id="counter"></div>
 <div class="keys">← → / пробел — листать</div>
+<button class="nav-arrow prev" id="navPrev" aria-label="Предыдущий слайд"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+<button class="nav-arrow next" id="navNext" aria-label="Следующий слайд"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
 
 <script>
 (function(){
   var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
   var dotsWrap = document.getElementById('dots');
   var counter = document.getElementById('counter');
+  var navPrev = document.getElementById('navPrev');
+  var navNext = document.getElementById('navNext');
   var current = 0;
   try{ current = parseInt(localStorage.getItem('ame-deck-slide')||'0',10)||0; }catch(e){}
   if(current>=slides.length) current=0;
@@ -341,6 +352,8 @@
     var dots=dotsWrap.querySelectorAll('button');
     dots.forEach(function(dt,ix){dt.classList.toggle('on',ix===i);});
     counter.textContent=(i+1)+' / '+slides.length;
+    navPrev.disabled = (i===0);
+    navNext.disabled = (i===slides.length-1);
     try{localStorage.setItem('ame-deck-slide',String(i));}catch(e){}
   }
   slides.forEach(function(_,ix){
@@ -349,6 +362,8 @@
     b.addEventListener('click',function(){show(ix);});
     dotsWrap.appendChild(b);
   });
+  navPrev.addEventListener('click',function(){show(current-1);});
+  navNext.addEventListener('click',function(){show(current+1);});
   document.addEventListener('keydown',function(e){
     if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();show(current+1);}
     if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(current-1);}
