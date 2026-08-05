@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Объединение сайтов — масс-эксперт.рф + ms-expert.ru</title>
+<style>
+  :root{
+    --bg:#0F172A; --card:#1A2236; --border:#2A2F3E;
+    --h:#E2E8F0; --t:#CBD5E1; --muted:#94A3B8;
+    --accent:#F59E0B; --accent-dark:#D97706;
+    --primary:#0B3D6B; --primary-dark:#072649;
+    --ok:#34D399; --bad:#F87171;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%;background:#0B1120;font-family:'Inter','Segoe UI',system-ui,sans-serif;overflow:hidden}
+  .stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+  .deck{width:1920px;height:1080px;position:relative;flex:none;transform-origin:center center;background:var(--bg);color:var(--t);overflow:hidden;box-shadow:0 0 80px rgba(0,0,0,.6)}
+  .slide{position:absolute;inset:0;padding:80px 110px;opacity:0;visibility:hidden;transition:opacity .35s ease;overflow:hidden}
+  .slide.active{opacity:1;visibility:visible}
+
+  /* ===== типографика ===== */
+  .kicker{display:inline-flex;align-items:center;gap:10px;font-size:20px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+  .kicker::before{content:'';width:34px;height:3px;background:var(--accent);border-radius:2px}
+  h1{font-size:76px;line-height:1.08;color:var(--h);font-weight:800;letter-spacing:-.01em}
+  h2{font-size:54px;line-height:1.12;color:var(--h);font-weight:700;letter-spacing:-.01em;margin-bottom:28px}
+  h3{font-size:30px;color:var(--h);font-weight:600}
+  p.lead{font-size:26px;line-height:1.55;color:var(--t);max-width:1100px}
+  .muted{color:var(--muted)}
+  .accent{color:var(--accent)}
+  .small{font-size:20px;line-height:1.5}
+  .smaller{font-size:17px;line-height:1.45}
+
+  /* ===== карточки ===== */
+  .grid{display:grid;gap:26px}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:30px 32px}
+  .card h3{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  .card p{font-size:21px;line-height:1.5;color:var(--t)}
+  .card .big{font-size:44px;font-weight:800;color:var(--h);line-height:1.1}
+  .icon{width:46px;height:46px;flex:none;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800}
+  .icon.ok{background:rgba(52,211,153,.15);color:var(--ok)}
+  .icon.bad{background:rgba(248,113,113,.15);color:var(--bad)}
+  .icon.acc{background:rgba(245,158,11,.15);color:var(--accent)}
+  .icon.blu{background:rgba(59,130,246,.15);color:#60A5FA}
+
+  /* ===== мокап браузера ===== */
+  .browser{background:#0D1526;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+  .browser-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#131C30;border-bottom:1px solid var(--border)}
+  .dot{width:11px;height:11px;border-radius:50%}
+  .dot.r{background:#FF5F57}.dot.y{background:#FEBC2E}.dot.g{background:#28C840}
+  .browser-url{margin-left:12px;flex:1;max-width:520px;background:#0B1120;border:1px solid var(--border);border-radius:8px;padding:6px 14px;font-size:14px;color:var(--muted);font-family:ui-monospace,monospace}
+  .browser-body{position:relative}
+  /* мини-шапка AME внутри мокапа */
+  .ame-top{display:flex;align-items:center;gap:18px;padding:14px 26px;background:linear-gradient(135deg,#0F172A,#16213B);border-bottom:1px solid var(--border)}
+  .ame-logo{width:150px;height:44px;background:var(--primary);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#fff;letter-spacing:.02em;flex:none}
+  .ame-logo span{color:var(--accent)}
+  .ame-nav{display:flex;gap:16px;font-size:13px;color:var(--muted)}
+  .ame-nav .on{color:var(--accent);font-weight:600}
+  /* мини-контент ms-expert */
+  .me-hero{background:linear-gradient(135deg,var(--primary),var(--primary-dark));padding:34px 40px;color:#fff}
+  .me-hero .badge{display:inline-block;background:var(--accent);color:#0F172A;font-weight:700;font-size:12px;padding:4px 12px;border-radius:20px;margin-bottom:14px}
+  .me-hero h4{font-size:28px;font-weight:800;margin-bottom:8px}
+  .me-hero p{font-size:14px;color:#BFD4EE;max-width:560px}
+  .me-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:22px 26px;background:#0B1120}
+  .me-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+  .me-card .ph{height:64px;border-radius:8px;background:linear-gradient(135deg,#1E3A5F,#2A4A75);margin-bottom:10px}
+  .me-card .t{font-size:13px;color:var(--h);font-weight:600}
+  .me-card .s{font-size:11px;color:var(--muted);margin-top:3px}
+  /* мини-футер */
+  .ame-foot{display:flex;justify-content:space-between;align-items:center;padding:16px 26px;background:#0D1526;border-top:1px solid var(--border);font-size:12px;color:var(--muted)}
+
+  /* ===== схема структуры ===== */
+  .tree{display:flex;flex-direction:column;gap:8px;font-family:ui-monospace,monospace;font-size:21px;line-height:1.6;background:var(--card);border:1px solid var(--border);border-radius:18px;padding:34px 40px}
+  .tree .dir{color:var(--h);font-weight:700}
+  .tree .new{color:var(--accent);font-weight:700}
+  .tree .dim{color:var(--muted)}
+  .tree .ind{display:inline-block;width:2.2em}
+
+  /* ===== таблица сравнения ===== */
+  table.cmp{width:100%;border-collapse:collapse;font-size:21px}
+  table.cmp th{text-align:left;padding:16px 20px;color:var(--h);font-size:22px;border-bottom:2px solid var(--border)}
+  table.cmp td{padding:15px 20px;border-bottom:1px solid var(--border);color:var(--t);vertical-align:top}
+  table.cmp td:first-child{color:var(--muted);white-space:nowrap;font-weight:500}
+  .tick{color:var(--ok);font-weight:700}
+  .cross{color:var(--bad);font-weight:700}
+
+  /* ===== шаги ===== */
+  .steps{display:flex;flex-direction:column;gap:16px}
+  .step{display:flex;gap:20px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 26px}
+  .step-n{width:44px;height:44px;flex:none;border-radius:50%;background:rgba(245,158,11,.15);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800}
+  .step h3{font-size:24px;margin-bottom:4px}
+  .step p{font-size:19px;color:var(--t);line-height:1.45}
+
+  /* ===== навигация по слайдам ===== */
+  .dots{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:50}
+  .dots button{width:12px;height:12px;border-radius:50%;border:none;background:#334155;cursor:pointer;transition:all .25s;padding:0}
+  .dots button.on{background:var(--accent);transform:scale(1.25)}
+  .counter{position:absolute;bottom:34px;right:44px;z-index:50;font-size:17px;color:var(--muted);letter-spacing:.08em}
+  .keys{position:absolute;bottom:34px;left:44px;z-index:50;font-size:15px;color:#475569}
+  .slide-foot{position:absolute;bottom:44px;left:110px;right:110px;display:flex;justify-content:space-between;align-items:center;font-size:16px;color:#475569;border-top:1px solid #1E293B;padding-top:16px}
+
+  /* титульный слайд */
+  .title-slide{display:flex;flex-direction:column;justify-content:center;background:radial-gradient(1200px 600px at 75% 10%,rgba(245,158,11,.08),transparent 60%),radial-gradient(900px 500px at 20% 90%,rgba(11,61,107,.35),transparent 60%)}
+  .title-slide h1{font-size:96px;margin-bottom:30px}
+  .title-slide .lead{font-size:32px;max-width:1250px}
+  .badges{display:flex;gap:14px;margin-top:46px}
+  .pill{display:inline-flex;align-items:center;gap:10px;padding:12px 26px;border-radius:40px;border:1px solid var(--border);background:var(--card);font-size:21px;color:var(--t)}
+  .pill b{color:var(--accent)}
+
+  /* схема интеграции */
+  .flow{display:flex;align-items:stretch;gap:30px;margin-top:20px}
+  .flow-box{flex:1;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px;text-align:center}
+  .flow-box .fl{font-size:15px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+  .flow-box .name{font-size:26px;font-weight:700;color:var(--h);margin-bottom:6px}
+  .flow-box .sub{font-size:18px;color:var(--t)}
+  .flow-arrow{display:flex;align-items:center;font-size:40px;color:var(--accent);font-weight:300}
+  .highlight{outline:2px solid var(--accent);outline-offset:2px;position:relative}
+  .tag-new{position:absolute;top:-14px;right:18px;background:var(--accent);color:#0F172A;font-size:14px;font-weight:800;padding:4px 14px;border-radius:20px;letter-spacing:.04em}
+</style>
+</head>
+<body>
+<div class="stage"><div class="deck" id="deck">
+
+<!-- ============ 1. ТИТУЛ ============ -->
+<section class="slide title-slide active" data-title="Титул">
+  <div class="kicker">Презентация для руководства</div>
+  <h1>Объединение сайтов:<br>масс-эксперт.рф + ms-expert.ru</h1>
+  <p class="lead">Корпоративный сайт и продуктовый лендинг расходомеров<br>становятся <span class="accent">одним целым</span> — без потери дизайна, контента и скорости</p>
+  <div class="badges">
+    <div class="pill">🏭 <span><b>AME</b> · корпоративный</span></div>
+    <div class="pill">📐 <span><b>Mass-EXPERT</b> · продукт</span></div>
+    <div class="pill" style="border-color:rgba(245,158,11,.4)">→ один сайт</div>
+  </div>
+  <div class="slide-foot"><span>масс-эксперт.рф · ООО «Автоматизация-Метрология-ЭКСПЕРТ»</span><span>август 2026</span></div>
+</section>
+
+<!-- ============ 2. СЕГОДНЯ ============ -->
+<section class="slide" data-title="Сегодня">
+  <div class="kicker">Текущее состояние</div>
+  <h2>Два сайта — две точки входа</h2>
+  <div class="grid g2" style="margin-bottom:34px">
+    <div class="card">
+      <h3><span class="icon blu">🏭</span>масс-эксперт.рф</h3>
+      <p><b>Корпоративный сайт</b> компании: о нас, услуги, продукция, сертификаты, контакты. 133 страницы, статика, тёмная тема.</p>
+      <p class="small muted" style="margin-top:12px">Роль: <b class="accent">доверие и партнёры</b> — «кто мы и что мы умеем»</p>
+    </div>
+    <div class="card">
+      <h3><span class="icon acc">📐</span>ms-expert.ru</h3>
+      <p><b>Продуктовый лендинг</b> расходомеров Mass-EXPERT: конфигуратор, 16 отраслей, типоразмеры, характеристики. Статика, тёмная тема.</p>
+      <p class="small muted" style="margin-top:12px">Роль: <b class="accent">продажи</b> — «что мы продаём и как это настроить»</p>
+    </div>
+  </div>
+  <div class="grid g3">
+    <div class="card"><p class="small">⚠️ <b>Раздельная навигация</b> — посетитель, пришедший за расходомером, не видит компанию, и наоборот</p></div>
+    <div class="card"><p class="small">⚠️ <b>Двойное продвижение</b> — два домена конкурируют друг с другом в поиске</p></div>
+    <div class="card"><p class="small">⚠️ <b>Разные брендинг</b> — руководство хочет единое пространство</p></div>
+  </div>
+</section>
+
+<!-- ============ 3. РЕШЕНИЕ ============ -->
+<section class="slide" data-title="Решение">
+  <div class="kicker">Предлагаемое решение</div>
+  <h2>Встраиваем ms-expert.ru внутрь масс-эксперт.рф</h2>
+  <p class="lead" style="margin-bottom:36px">Полное физическое встраивание в подкаталог — не iframe, не ссылка. Один домен, одна навигация, один стиль.</p>
+  <div class="tree">
+    <div class="dir">масс-эксперт.рф/</div>
+    <div class="ind dim">├── index.html <span class="dim">— корпоративный сайт (как сейчас)</span></div>
+    <div class="ind dim">├── o-kompanii/ · uslugi/ · produkcziya/ <span class="dim">…</span></div>
+    <div class="ind new">├── mass-expert/ <span class="accent">← НОВЫЙ раздел: весь ms-expert.ru</span></div>
+    <div class="ind" style="padding-left:2.2em"><span class="new">│   ├── index.html</span> <span class="dim">— лендинг расходомеров</span></div>
+    <div class="ind" style="padding-left:2.2em"><span class="new">│   ├── configurator.html</span> <span class="dim">— конфигуратор</span></div>
+    <div class="ind" style="padding-left:2.2em"><span class="new">│   ├── applications/ · conditions/ · tubes/</span> <span class="dim">— 27 страниц</span></div>
+    <div class="ind dim">└── kontakty/ · sertifikaty/ <span class="dim">…</span></div>
+  </div>
+  <p class="small muted" style="margin-top:26px">Все пути ms-expert.ru относительные — сайт переносится в подпапку без правки ссылок. Проверено.</p>
+</section>
+
+<!-- ============ 4. МОКАП: ГЛАВНАЯ ============ -->
+<section class="slide" data-title="Мокап: главная">
+  <div class="kicker">Как это выглядит · 1/2</div>
+  <h2>Главная масс-эксперт.рф — появляется раздел расходомеров</h2>
+  <div style="display:flex;gap:40px;align-items:stretch;margin-top:26px">
+    <div class="browser" style="flex:1.15">
+      <div class="browser-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><div class="browser-url">масс-эксперт.рф</div></div>
+      <div class="browser-body">
+        <div class="ame-top">
+          <div class="ame-logo">АМ<span>Э</span></div>
+          <div class="ame-nav">
+            <span>О компании</span><span>Услуги</span><span class="on">Продукция</span><span>Сертификаты</span><span>Контакты</span>
+          </div>
+        </div>
+        <div style="padding:40px 42px;background:linear-gradient(135deg,#16213B,#0F172A)">
+          <div style="font-size:34px;font-weight:800;color:#E2E8F0;margin-bottom:10px">Продукция</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px">
+            <div class="me-card"><div class="ph"></div><div class="t">Узлы учёта</div></div>
+            <div class="me-card"><div class="ph"></div><div class="t">Блочное оборудование</div></div>
+            <div class="me-card" style="border-color:var(--accent);position:relative"><div class="ph"></div><div class="t" style="color:var(--accent)">Расходомеры Mass-EXPERT</div><div class="s">новый раздел</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+      <h3><span class="icon acc">➕</span>Пункт «Расходомеры Mass-EXPERT»</h3>
+      <p>Добавляется в меню <b>«Продукция»</b> и на главную. Ведёт на встроенный лендинг.</p>
+      <p class="small muted" style="margin-top:16px">Посетитель-покупатель попадает в продукт в один клик, оставаясь на сайте компании.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. МОКАП: ВСТРОЕННЫЙ ЛЕНДИНГ ============ -->
+<section class="slide" data-title="Мокап: встроенный лендинг">
+  <div class="kicker">Как это выглядит · 2/2</div>
+  <h2>Раздел /mass-expert/ — продукты в общей рамке</h2>
+  <div style="display:flex;gap:40px;align-items:stretch;margin-top:26px">
+    <div class="card" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+      <h3><span class="icon ok">🖼</span>Единая рамка</h3>
+      <p>Сверху — шапка AME с крошкой «Главная → Продукция → Mass-EXPERT», снизу — общий футер с контактами компании.</p>
+      <p class="small muted" style="margin-top:16px">Контент лендинга (конфигуратор, отрасли, характеристики) остаётся в фирменном стиле Mass-EXPERT — оранжевый акцент уже совпадает.</p>
+    </div>
+    <div class="browser" style="flex:1.15">
+      <div class="browser-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><div class="browser-url">масс-эксперт.рф/mass-expert/</div></div>
+      <div class="browser-body">
+        <div class="ame-top">
+          <div class="ame-logo">АМ<span>Э</span></div>
+          <div class="ame-nav"><span>← на главную</span><span class="on">Расходомеры</span><span>Конфигуратор</span></div>
+        </div>
+        <div class="me-hero">
+          <div class="badge">Mass-EXPERT</div>
+          <h4>Расходомеры для нефтегаза и химии</h4>
+          <p>Массовые расходомеры Кориолиса: подбор, настройка, замена импорта за 2 часа</p>
+        </div>
+        <div class="me-cards">
+          <div class="me-card"><div class="ph"></div><div class="t">ME100–ME400</div><div class="s">трансмиттеры</div></div>
+          <div class="me-card"><div class="ph"></div><div class="t">Конфигуратор</div><div class="s">подбор опций</div></div>
+          <div class="me-card"><div class="ph"></div><div class="t">16 отраслей</div><div class="s">применение</div></div>
+          <div class="me-card"><div class="ph"></div><div class="t">Сертификаты</div><div class="s">ГОСТ, ЕАС</div></div>
+        </div>
+        <div class="ame-foot"><span>© ООО «Автоматизация-Метрология-ЭКСПЕРТ»</span><span>+7 (347) 286-53-50 · info@ame-info.ru</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. ТЁМНАЯ ТЕМА ============ -->
+<section class="slide" data-title="Тёмная тема">
+  <div class="kicker">Деталь, которая уже решена</div>
+  <h2>Тёмная тема синхронизируется автоматически</h2>
+  <div class="grid g3" style="margin-top:20px">
+    <div class="card">
+      <h3><span class="icon acc">🌙</span>Один ключ</h3>
+      <p class="smaller">Оба сайта хранят выбор темы в <b>localStorage['mass-expert-theme']</b>. На одном домене это общее хранилище.</p>
+    </div>
+    <div class="card">
+      <h3><span class="icon ok">⚡</span>Ноль доработок</h3>
+      <p class="smaller">Переключил тему на главной — встроенный лендинг и конфигуратор уже тёмные. Без iframe-костылей и перезагрузок.</p>
+    </div>
+    <div class="card">
+      <h3><span class="icon blu">🎨</span>Совпадение палитр</h3>
+      <p class="smaller">Акцент <b>#F59E0B</b> у обоих, фон #0F172A и #0B3D6B — родственные тона. Визуально единая система.</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:26px">
+    <p class="small">💡 <b>Почему это важно для руководства:</b> при варианте с iframe тема бы ломалась (кросс-домен) — пользователь включает тёмную, встроенная страница остаётся белой. При встраивании в подкаталог — работает «из коробки».</p>
+  </div>
+</section>
+
+<!-- ============ 7. СРАВНЕНИЕ ============ -->
+<section class="slide" data-title="Сравнение вариантов">
+  <div class="kicker">Почему подкаталог, а не iframe</div>
+  <h2>Сравнение вариантов встраивания</h2>
+  <table class="cmp" style="margin-top:26px">
+    <tr><th style="width:26%">Критерий</th><th style="width:37%">iframe (окно в окне)</th><th style="width:37%">Подкаталог /mass-expert/ ✅</th></tr>
+    <tr><td>Поисковая индексация</td><td class="cross">✕ контент не индексируется</td><td class="tick">✓ всё индексируется на масс-эксперт.рф</td></tr>
+    <tr><td>Скорость</td><td class="cross">✕ двойная загрузка</td><td class="tick">✓ одна загрузка, статика</td></tr>
+    <tr><td>Тёмная тема</td><td class="cross">✕ ломается (кросс-домен)</td><td class="tick">✓ синхронна автоматически</td></tr>
+    <tr><td>Конфигуратор</td><td class="cross">✕ скролл и «назад» ломаются</td><td class="tick">✓ работает как родной</td></tr>
+    <tr><td>Ссылки и якоря</td><td class="cross">✕ ведут в никуда</td><td class="tick">✓ работают</td></tr>
+    <tr><td>Единый стиль</td><td class="cross">✕ «сайт в рамке»</td><td class="tick">✓ общая шапка и футер</td></tr>
+  </table>
+  <p class="small muted" style="margin-top:22px">Так делают лидеры рынка: продуктовая страница живёт внутри корпоративного сайта (Emerson, Siemens, ОВЕН), а не в чужом окне.</p>
+</section>
+
+<!-- ============ 8. ПЛАН ============ -->
+<section class="slide" data-title="План внедрения">
+  <div class="kicker">Дорожная карта</div>
+  <h2>План внедрения — 5 шагов</h2>
+  <div class="steps" style="margin-top:22px">
+    <div class="step"><div class="step-n">1</div><div><h3>Перенос файлов</h3><p>Копируем все 34 страницы ms-expert.ru в папку /mass-expert/ — пути относительные, ссылки не трогаем</p></div></div>
+    <div class="step"><div class="step-n">2</div><div><h3>Единая рамка</h3><p>Добавляем на страницы расходомеров мини-шапку AME с крошкой и общий футер с контактами</p></div></div>
+    <div class="step"><div class="step-n">3</div><div><h3>Пункт меню</h3><p>«Расходомеры Mass-EXPERT» в меню «Продукция» + карточка на главной → /mass-expert/</p></div></div>
+    <div class="step"><div class="step-n">4</div><div><h3>Проверка</h3><p>Конфигуратор, тёмная тема, все 34 страницы, адаптив — headless-тесты перед запуском</p></div></div>
+    <div class="step"><div class="step-n">5</div><div><h3>Редирект старого домена</h3><p>ms-expert.ru → 301 на /mass-expert/ — SEO-вес перетекает, «дублей» в поиске нет</p></div></div>
+  </div>
+</section>
+
+<!-- ============ 9. ИТОГ ============ -->
+<section class="slide title-slide" data-title="Итог">
+  <div class="kicker">Вывод</div>
+  <h1>Один сайт вместо двух —<br>сильнее в поиске, удобнее клиенту</h1>
+  <div class="grid g3" style="margin-top:44px">
+    <div class="card"><div class="big accent">1</div><h3 style="margin:10px 0 6px">Единое пространство</h3><p class="small">Компания и продукт — в одной навигации, одном стиле, одном домене</p></div>
+    <div class="card"><div class="big accent">100%</div><h3 style="margin:10px 0 6px">Контент сохранён</h3><p class="small">Все 167 страниц обоих сайтов остаются, ничего не теряется</p></div>
+    <div class="card"><div class="big accent">0 ₽</div><h3 style="margin:10px 0 6px">Новых затрат</h3><p class="small">Статика, без плагинов и лицензий — только перенос файлов</p></div>
+  </div>
+  <div class="badges" style="margin-top:44px">
+    <div class="pill">✅ дизайн не меняется</div>
+    <div class="pill">✅ тёмная тема работает</div>
+    <div class="pill">✅ конфигуратор работает</div>
+    <div class="pill">✅ SEO усиливается</div>
+  </div>
+  <div class="slide-foot"><span>Решение: встроить ms-expert.ru в подкаталог масс-эксперт.рф + 301-редирект</span><span>обсудим детали?</span></div>
+</section>
+
+</div></div>
+
+<div class="dots" id="dots"></div>
+<div class="counter" id="counter"></div>
+<div class="keys">← → / пробел — листать</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var dotsWrap = document.getElementById('dots');
+  var counter = document.getElementById('counter');
+  var current = 0;
+  try{ current = parseInt(localStorage.getItem('ame-deck-slide')||'0',10)||0; }catch(e){}
+  if(current>=slides.length) current=0;
+
+  function fit(){
+    var d=document.getElementById('deck');
+    var s=Math.min(window.innerWidth/1920, window.innerHeight/1080);
+    d.style.transform='scale('+s+')';
+  }
+  function show(i){
+    if(i<0)i=0; if(i>=slides.length)i=slides.length-1;
+    slides.forEach(function(sl,ix){sl.classList.toggle('active',ix===i);});
+    current=i;
+    var dots=dotsWrap.querySelectorAll('button');
+    dots.forEach(function(dt,ix){dt.classList.toggle('on',ix===i);});
+    counter.textContent=(i+1)+' / '+slides.length;
+    try{localStorage.setItem('ame-deck-slide',String(i));}catch(e){}
+  }
+  slides.forEach(function(_,ix){
+    var b=document.createElement('button');
+    b.setAttribute('aria-label','Слайд '+(ix+1));
+    b.addEventListener('click',function(){show(ix);});
+    dotsWrap.appendChild(b);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();show(current+1);}
+    if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(current-1);}
+    if(e.key==='Home')show(0);
+    if(e.key==='End')show(slides.length-1);
+  });
+  window.addEventListener('resize',fit);
+  fit(); show(current);
+})();
+</script>
+</body>
+</html>
